@@ -1,0 +1,79 @@
+This courses will teach you how to create electronics e-commerce website using Node JS.
+
+-------------------------What you’ll learn-------------------------
+
+1. -Create Electronics E-commerce Website Using Node JS.
+2. Setting up Node environment.
+3. Working on the user-interface.
+4. How to create a database.
+5. How to get different product types from database.
+6. How to add products to cart.
+7. How to remove products from cart.
+8.How to increase and decrease number of products customer wants to order.
+9. How to make an order and checkout.
+10. How to integrate Paypal payment system.
+11. How to let customers pay using Paypal.
+12.How to verify Payment.
+13.How to display order info and receipt.
+And much much more….
+
+-------------------Course Content----------------
+
+Course content 68 lectures • 2hr 30min.
+-----------------------Requirements--------------------
+
+This courses will teach you how to create electronics e-commerce website using Node JS.
+
+In this course you will learn how to build electronics e-commerce website using Node JS. Learning how to build an e-commerce website that lets customers order from you will give you the opportunity to build a real-world, in-demand project and will open up the door of opportunity for you to become a professional Full-Stack developer.
+
+First, you will learn how to install Node environment, then you will learn how to incorporate an HTML & CSS electronics template. Then you will be taught the most important parts of this projects such as creating a cart and letting customers checkout. Thereafter, you will be taught how to integrate Paypal Payment system so that customers will pay you.
+
+
+You will also learn how to integrate PayPal correctly so that you receive money for your meals. PayPal is one of the most powerful payment systems. By integrating PayPal into your Node website you will learn a very important skill that is indispensable these days in any website.
+
+By the end of this course you will have built a project using Node that is capable of letting customers buy meals online while you have a control over the business and the website.
+
+ 
+
+Why should you take this course?
+
+There are many reasons why this course is extremely important.
+
+1. You will build a real-world web app, rather than building unrealistic project.
+
+2. I will teach you the “how-to” rather than concepts that you will end up abandoning.
+
+3. You will learn HTML, CSS, Node & MySql and how they can work together.
+
+4. You will learn Full-Stack development and become a professional one having build a complete e-commerce website.
+
+ 
+
+Some of What You Will Learn in This Course:
+
+1. Install project environment & create project.
+
+2. Run Node project files.
+
+
+3. Structure your project.
+
+4. How to add a complete HTML & CSS electronics Template.
+
+5. Logic behind building complete e-commerce website.
+
+6. How to let customers add products to cart.
+
+7. How to let customers make orders and checkout.
+
+8. How to integrate Paypal Payment System.
+
+9. How to manage your database.
+
+10. Best practices and techniques.
+
+11. Organize your project.
+
+12. Much much more…
+
+ 
