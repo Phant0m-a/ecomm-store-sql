@@ -174,5 +174,63 @@ app.post('/edit_product_quantity', (req, res) => {
 
 })
 
+app.get('/checkout', async (req, res) => {
+    try {
+        var total = req.session.total;
+        res.render('checkout', { total });
+    } catch (err) {
+        res.send('error accured', err);
+    }
+})
+
+
+app.post('/place-order', async (req, res) => {
+    try {
+
+        // const { name,
+        //     email,
+        //     phone,
+        //     city,
+        //     address,
+        // } = req.body;
+        name = 'demo';
+        email = 'demo@gmail.com';
+        phone = 03455555555;
+        city = 'lahore';
+        address = 'fake address';
+        let cost = req.session.total;
+        var products_ids = '';
+        let status = 'not paid';
+        let date = new Date();
+
+
+
+        var cart = req.session.cart;
+        for (let i = 0; i < cart.length; i++) {
+            products_ids = products_ids + "," + cart[i].id;
+        }
+        var query = "INSERT INTO orders(cost,name,email,status,city,address,phone,date,products_ids) VALUES ?";
+        var values = [[cost, name, email, status, city, address, phone, date, products_ids]];
+        //uplaod data to db
+        db.query(query, [values], (err, result) => {
+            console.log('here', query);
+            res.redirect('/payment');
+        })
+        // res.render('checkout');
+    } catch (err) {
+        res.send('error accured', err);
+    }
+})
+
+
+app.get('/payment', async (req, res) => {
+    try {
+        let total = req.session.total;
+        res.render('payment', { total })
+    } catch (err) {
+        res.send('error accured', err);
+    }
+})
+
 
 app.listen(5000, () => console.log("Pomato Server Started on Port 5000"));

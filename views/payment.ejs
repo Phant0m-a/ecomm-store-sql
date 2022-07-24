@@ -91,86 +91,59 @@
     <!-- end header -->
     <br><br><br>
     <!-- cart start -->
+
+    <!-- Replace "test" with your own sandbox Business account app client ID -->
+
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AVVqLqdSgZV5waGx4H-X8BFMvZ5HLD0UR1jSkuGXhWXAT6pWtNPAdN-YWOOGV7KR-MZIEB58wCdda5Me&currency=USD"></script>
+
+    <script>
+        paypal.Buttons({
+            // Sets up the transaction when a payment button is clicked
+            createOrder: (data, actions) => {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            //set price
+                            value: '<%=total%>' // Can also reference a variable or function
+                        }
+                    }]
+                });
+            },
+            // Finalize the transaction after payer approval
+            onApprove: (data, actions) => {
+                return actions.order.capture().then(function (orderData) {
+                    // Successful capture! For dev/demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    const transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+
+                    // When ready to go live, remove the alert and show a success message within this page. For example:
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+
+                    //
+                    const element = document.getElementById('paypal-button-container');
+                    element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
+
+
+
     <div class="cart container mt-2 my-3py-5">
-        <div class="container mt-2">
-            <h4>Your Cart</h4>
+
+        <div class="container mt2 text-center">
+            <h3>Payment</h3>
+            <h3> Your total is: <%=total%>
+            </h3>
+            <br>
+            <br>
+            <!-- Set up a container element for the button -->
+            <div id="paypal-button-container"></div>
         </div>
-        <table class="pt-5 table" style="width:100%">
-            <tr class="table-row">
-                <th class="table-head">Product</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-            </tr>
-            <% cart.forEach((item)=>{ %>
-                <tr class="table-row">
-                    <td>
-                        <div class="product-info">
-                            <img style='' width='50px' height="50px" src="images/<%= item.image%>" alt="product-img">
-                            <div>
-                                <p>
-                                    <%= item.name%>
-                                </p>
-                                <% if(item.sale_price){ %>
-                                    <small><span>$</span>
-                                        <%=item.sale_price%>
-                                    </small>
-                                    <%}else{%>
-                                        <small><span>$</span>
-                                            <%=item.price%>
-                                        </small>
-                                        <%}%>
-                                            <br>
-                                            <form action="/remove_product" method="post">
-                                                <input type="hidden" name="id" value="<%= item.id%>">
-                                                <input type="submit" name="remove_btn"
-                                                    class="remove-btn btn btn-primary" value="remove">
-                                            </form>
-                            </div>
-                        </div>
-                    </td>
-
-                    <td class="">
-                        <form action="/edit_product_quantity" method='post'>
-                            <input type="submit" name="decrease_product_quantity" class="edit-btn  btn btn-primary"
-                                value="-">
-                            <input type="hidden" name="id" value="<%= item.id%>">
-                            <input type="text" name="quantity" value="<%= item.quantity%>" readonly>
-                            <input type="submit" name="increase_product_quantity" class="edit-btn  btn btn-primary"
-                                value="+">
-                        </form>
-                    </td>
-
-
-                    <td>
-                        <% if(item.sale_price){ %>
-                            <span class="product-price">$ <%=item.sale_price * item.quantity%></span>
-                            <%}else{%>
-                                <span class="product-price">$ <%=item.price * item.quantity%></span>
-                                <%}%>
-
-                    </td>
-
-                </tr>
-                <%}) %>
-        </table>
-
-        <div class="cart-total">
-            <table class="table" style="display:flex;justify-content:right;">
-                <tr class="table-row">
-                    <td>Total</td>
-                    <td>$<%=total%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form action="/checkout" method="get">
-                            <input type="submit" name="checkout" class="btn btn-warning">
-                        </form>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
     </div>
     <!-- cart end -->
 
