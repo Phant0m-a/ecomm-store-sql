@@ -64,7 +64,8 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="active"> <a href="index.html">Home</a> </li>
+                                        <li class="active"> <a href="#">Home</a> </li>
+                                        <li> <a href="/cart">Cart</a> </li>
                                         <li> <a href="about.html">About</a> </li>
                                         <li><a href="brand.html">Brand</a></li>
                                         <li><a href="special.html">Specials</a></li>
@@ -352,22 +353,22 @@
                     <div class="titlepage">
                         <h2>Contact us</h2>
                     </div>
-                    <form class="main_form">
+                    <form class="main_form" method="post" action="/contact-us">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="Your name" type="text" name="Your Name">
+                                <input class="form-control" placeholder="Your name" type="text" name="name" required>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="Email" type="text" name="Email">
+                                <input class="form-control" placeholder="Email" type="text" name="email" required>
                             </div>
                             <div class=" col-md-12">
-                                <input class="form-control" placeholder="Phone" type="text" name="Phone">
+                                <input class="form-control" placeholder="Phone" type="text" name="phone" required>
                             </div>
                             <div class="col-md-12">
-                                <textarea class="textarea" placeholder="Message"></textarea>
+                                <textarea class="textarea" name="message" placeholder="Message" required></textarea>
                             </div>
                             <div class=" col-md-12">
-                                <button class="send">Send</button>
+                                <button class="send" type="submit">Send</button>
                             </div>
                         </div>
                     </form>
@@ -399,7 +400,8 @@
                             </ul>
                             <div class="menu-bottom">
                                 <ul class="link">
-                                    <li> <a href="#">Home</a></li>
+                                    <li class="active"> <a href="#">Home</a></li>
+                                    <li> <a href="/cart">Cart</a> </li>
                                     <li> <a href="#">About</a></li>
 
                                     <li> <a href="#">Brand </a></li>

@@ -62,7 +62,8 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="active"> <a href="index.html">Home</a> </li>
+                                        <li> <a href="/">Home</a> </li>
+                                        <li> <a href="/cart">Cart</a> </li>
                                         <li> <a href="about.html">About</a> </li>
                                         <li><a href="brand.html">Brand</a></li>
                                         <li><a href="special.html">Specials</a></li>
@@ -126,6 +127,9 @@
                     //
                     const element = document.getElementById('paypal-button-container');
                     element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    setTimeout(() => {
+                        actions.redirect('/invoice');
+                    }, 4000);
                 });
             }
         }).render('#paypal-button-container');
@@ -167,7 +171,8 @@
                             </ul>
                             <div class="menu-bottom">
                                 <ul class="link">
-                                    <li> <a href="#">Home</a></li>
+                                    <li> <a href="/">Home</a> </li>
+                                    <li> <a href="/cart">Cart</a> </li>
                                     <li> <a href="#">About</a></li>
 
                                     <li> <a href="#">Brand </a></li>
